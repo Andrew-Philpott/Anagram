@@ -15,30 +15,34 @@ namespace AnagramFinder.Models
       Word = word;
       PotentialAnagrams = potentialAnagrams;
     }
+    public static string SortAndTrim(string word)
+    {
+      char[] wordCharacters = word.ToLower().ToCharArray();
+      Array.Sort(wordCharacters);
+      string wordCharactersString = new string(wordCharacters).Trim();
+      return wordCharactersString;
+    }
     public static bool CheckAnagram(string word, string potentialAnagram)
     {
-
-      char[] wordCharacters = word.ToLower().ToCharArray();
-      char[] potentialAnagramCharacters = potentialAnagram.ToLower().ToCharArray();
-      Array.Sort(wordCharacters);
-      Array.Sort(potentialAnagramCharacters);
-      string wordCharactersString = new string(wordCharacters).Trim();
-      string wordPotentialCharactersString = new string(potentialAnagramCharacters).Trim();
-      if (wordCharactersString == wordPotentialCharactersString)
+      if (word == potentialAnagram)
       {
         return true;
       }
       return false;
     }
-
     public static List<string> GetAllAnagrams(string word, string[] potentialAnagrams)
     {
+      string sortedAndTrimmedWord = SortAndTrim(word);
       List<string> potentialAnagramsList = new List<string>();
       foreach (string item in potentialAnagrams)
       {
-        if (CheckAnagram(word, item))
+        string sortedAndTrimmedItem = SortAndTrim(item);
+        if (sortedAndTrimmedWord.Length == sortedAndTrimmedItem.Length)
         {
-          potentialAnagramsList.Add(item);
+          if (CheckAnagram(sortedAndTrimmedWord, sortedAndTrimmedItem))
+          {
+            potentialAnagramsList.Add(item.Trim());
+          }
         }
       }
       return potentialAnagramsList;
@@ -50,8 +54,5 @@ namespace AnagramFinder.Models
         Console.WriteLine(item);
       }
     }
-
-
-
   }
 }

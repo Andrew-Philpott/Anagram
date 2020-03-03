@@ -14,6 +14,12 @@ namespace AnagramFinder.Models
       Word = word;
       PotentialAnagrams = potentialAnagrams;
     }
+    public static bool CheckAnagram(string word, string potentialAnagram)
+    {
+
+      //char[] characters = 
+      return false;
+    }
     public static void PrintList()
     {
       foreach (string item in _dictionary)

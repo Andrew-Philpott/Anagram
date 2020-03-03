@@ -24,5 +24,22 @@ namespace AnagramFinder.Tests
       Assert.AreEqual(potentialAnagrams, newAnagram.PotentialAnagrams);
     }
 
+    [TestMethod]
+    public void CheckAnagram_ChecksWordAgainstPotentialWord_True()
+    {
+      string word = "Tar";
+      string potentialAnagram = "Rat";
+      //string[] potentialAnagrams = new string[] { "Rat" };
+      //Anagram newAnagram = new Anagram(word, potentialAnagrams);
+      Assert.AreEqual(true, Anagram.CheckAnagram(word, potentialAnagram));
+    }
+
+    [TestMethod]
+    public void CheckAnagram_ChecksWordAgainstPotentialWord_False()
+    {
+      string word = "tar";
+      string potentialAnagram = "car";
+      Assert.AreEqual(false, Anagram.CheckAnagram(word, potentialAnagram));
+    }
   }
 }

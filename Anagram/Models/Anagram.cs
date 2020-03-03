@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace AnagramFinder.Models
 {
@@ -21,13 +22,26 @@ namespace AnagramFinder.Models
       char[] potentialAnagramCharacters = potentialAnagram.ToLower().ToCharArray();
       Array.Sort(wordCharacters);
       Array.Sort(potentialAnagramCharacters);
-      string wordCharactersString = new string(wordCharacters);
-      string wordPotentialCharactersString = new string(potentialAnagramCharacters);
+      string wordCharactersString = new string(wordCharacters).Trim();
+      string wordPotentialCharactersString = new string(potentialAnagramCharacters).Trim();
       if (wordCharactersString == wordPotentialCharactersString)
       {
         return true;
       }
       return false;
+    }
+
+    public static List<string> GetAllAnagrams(string word, string[] potentialAnagrams)
+    {
+      List<string> potentialAnagramsList = new List<string>();
+      // foreach (string item in potentialAnagrams)
+      // {
+      //   if (CheckAnagram(word, item))
+      //   {
+      //     potentialAnagramsList.Add(item);
+      //   }
+      // }
+      return potentialAnagramsList;
     }
     public static void PrintList()
     {

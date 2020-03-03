@@ -17,9 +17,11 @@ namespace AnagramFinder.Tests
     public void AnagramConstructor_CreatesInstanceOfAnagram_Anagram()
     {
       string word = "Tar";
-      Anagram newAnagram = new Anagram(word);
+      string[] potentialAnagrams = new string[] { "Rat", "Art" };
+      Anagram newAnagram = new Anagram(word, potentialAnagrams);
       Assert.AreEqual(typeof(Anagram), newAnagram.GetType());
       Assert.AreEqual(word, newAnagram.Word);
+      Assert.AreEqual(potentialAnagrams, newAnagram.PotentialAnagrams);
     }
 
   }

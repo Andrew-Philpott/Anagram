@@ -34,13 +34,13 @@ namespace AnagramFinder.Models
     public static List<string> GetAllAnagrams(string word, string[] potentialAnagrams)
     {
       List<string> potentialAnagramsList = new List<string>();
-      // foreach (string item in potentialAnagrams)
-      // {
-      //   if (CheckAnagram(word, item))
-      //   {
-      //     potentialAnagramsList.Add(item);
-      //   }
-      // }
+      foreach (string item in potentialAnagrams)
+      {
+        if (CheckAnagram(word, item))
+        {
+          potentialAnagramsList.Add(item);
+        }
+      }
       return potentialAnagramsList;
     }
     public static void PrintList()

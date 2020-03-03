@@ -17,7 +17,16 @@ namespace AnagramFinder.Models
     public static bool CheckAnagram(string word, string potentialAnagram)
     {
 
-      //char[] characters = 
+      char[] wordCharacters = word.ToLower().ToCharArray();
+      char[] potentialAnagramCharacters = potentialAnagram.ToLower().ToCharArray();
+      Array.Sort(wordCharacters);
+      Array.Sort(potentialAnagramCharacters);
+      string wordCharactersString = new string(wordCharacters);
+      string wordPotentialCharactersString = new string(potentialAnagramCharacters);
+      if (wordCharactersString == wordPotentialCharactersString)
+      {
+        return true;
+      }
       return false;
     }
     public static void PrintList()
